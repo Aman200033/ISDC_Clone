@@ -1,0 +1,73 @@
+<?php
+
+$name=$_POST['name'];
+$dob=$_POST['dob'];
+$email=$_POST['email'];
+$gender=$_POST['gender'];
+$state=$_POST['state'];
+$mono=$_POST['mono'];
+$address=$_POST['address'];
+$xper=$_POST['xper'];
+$xiiper=$_POST['xiiper'];
+$gper=$_POST['gper'];
+$course=$_POST['course'];
+$subcourse=$_POST['subcourse'];
+
+$con=mysqli_connect('localhost','aman','AmaN');
+mysqli_select_db($con,"db1");
+
+$q="insert into admission (name,dob,email,gender,state,mobile,address,xper,xiiper,gper,course,subcourse) values('$name','$dob','$email','$gender','$state','$mono','$address',$xper,$xiiper,$gper,'$course','$subcourse')";
+$status=mysqli_query($con,$q);
+mysqli_close($con);
+
+?>
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="Thank You.css"></link>
+        <title>
+            THANK YOU
+        </title>
+    </head>
+    <body>
+        <div class="page">
+            <div class="headerpart"></div>
+                <div class="linkspart">
+                    <center>
+                        <a href="../../../Home.html">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="../../../About Us/About Us.html">About Us</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="../../../Department/Department.html">Departments / Courses</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="../../../Facilities/Facilities.html">Facilities</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="../../../Admission/Admission.html">Admissions</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="../../../Records/Records.html">Records</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </center>    
+                </div>
+                <div class="bodypart">
+                                <?php
+                                    if($status==1)
+                                    {
+                                ?>        
+                                        <img src="tick 1.png" width="350px" height="350px"/>
+                                        <h1><font color="green" size="25px">Thank You !</font></h1>
+                                        <h3> <font color="purple" size="20px">Your Form has been Successfully submitted</font></h3>
+                                    <?php
+                                    }
+                                    else
+                                    {
+                                    ?>
+                                    <br><img src="error.png" width="350px" height="350px"/>
+                                    <h1><font color="green" size="25px">Sorry !</font></h1>
+                                    <h3> <font color="purple" size="20px">Your Form Submission is Failed</font></h3>
+                                    <?php 
+                                    } 
+                                    ?>
+                    <h2><a href="../Click Here.html">Go Back</a></h2>
+                </div>    
+                <div class="footerpart">
+                    © Copyrights 2020 - ISWAR SARAN POST GRADUATE COLLEGE
+                    <br><br>
+                     Powerd by - Nanosoft Global Info Service Pvt. Ltd.
+                </div>    
+        </div>
+    </body>
+</html>

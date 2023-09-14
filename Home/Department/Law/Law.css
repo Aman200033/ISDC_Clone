@@ -1,0 +1,60 @@
+.page
+{
+    width:1330px;
+    height:auto;
+    border-style: none;
+}
+
+.headerpart
+{
+    width:1327px;
+    height:150px;
+    border-style: none;
+    background-color:white;
+    background-image:url("logo.png");
+    background-repeat: round;
+}
+
+.linkspart
+{
+    width:1327px;
+    height:25px;
+    border-style:none;
+    margin-top:5px;
+    padding-top:5px;
+    background-color:rgb(12,100,198);
+}
+
+.linkspart a
+{
+    color:rgb(245,246,251);
+    text-decoration:none;
+}
+
+.linkspart a:hover
+{
+    color:black;
+    background-color:white;
+}
+
+.bodypart
+{
+    width:1327px;
+    height:580px;
+    border-style:none;
+    margin-top:5px;
+    text-align:center;
+    font-size:22px;
+    text-align: justify;
+}
+
+.footerpart
+{
+    width:1327px;
+    height:70px;
+    border-style:none;
+    margin-top:5px;
+    padding-top:15px;;
+    background-color:rgb(12,100,198);
+    text-align:center;
+}

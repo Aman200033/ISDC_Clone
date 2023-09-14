@@ -1,0 +1,62 @@
+<?php
+
+$name=$_POST['name'];
+$email=$_POST['email'];
+$mono=$_POST['mono'];
+
+$con=mysqli_connect('localhost','aman','AmaN');
+mysqli_select_db($con,"db1");
+
+$q="select * from admission where name='$name' && email='$email' && mobile='$mono'";
+$result=mysqli_query($con,$q);
+$num=mysqli_num_rows($result);
+mysqli_close($con);
+
+?>
+
+<html>
+    <title>
+        RECORDS
+    </title>    
+    <body>
+        <table> 
+            <tr>
+                <th>Name</th>
+                    <th>DOB</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>State</th>
+                    <th>Mobile Number</th>
+                    <th>Address</th>
+                    <th>Class X Percentage</th>
+                    <th>Class XII Percentage</th>
+                    <th>Graduation Percentage</th>
+                    <th>Course</th>
+                    <th>Sub Course</th>
+            </tr>
+                <?php
+                for($i=1;$i<=$num;$i++)
+                {
+                    $row=mysqli_fetch_array($result);
+                ?>
+                    <tr>
+                        <td><?php echo $row['name']; ?></td>
+                        <td><?php echo $row['dob']; ?></td>
+                        <td><?php echo $row['email']; ?></td>
+                        <td><?php echo $row['gender']; ?></td>
+                        <td><?php echo $row['state']; ?></td>
+                        <td><?php echo $row['mobile']; ?></td>
+                        <td><?php echo $row['address']; ?></td>
+                        <td><?php echo $row['xper']; ?></td>
+                        <td><?php echo $row['xiiper']; ?></td>
+                        <td><?php echo $row['gper']; ?></td>
+                        <td><?php echo $row['course']; ?></td>
+                        <td><?php echo $row['subcourse']; ?></td>
+                    </tr>
+                    <?php
+                }
+                    ?>
+                     <h2><a href="./Records.html">Go Back</a></h2>
+        </table>
+    </body>
+</html>
